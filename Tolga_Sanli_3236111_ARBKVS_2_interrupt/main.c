@@ -18,7 +18,8 @@ int blinkstatus = 1;
 int aktuellerLED = PINB0;
 int zustandDauerlicht = 1;
 
-
+//ISR erklären können
+//Interrupt Service Routine speichert beim Interrupt Daten ins Register, führt das Interrupt aus, gibt die Daten am ende zurück
 ISR(INT0_vect){
 	if(aktuellerLED == led0){
 		//If else Bedingung um Blinkstatus abzuändern (Blinken oder Dauerleuchten)
@@ -69,9 +70,10 @@ int main(void)
 	EICRA |= (1<<ISC11) | (1<<ISC01);
 	
 	//External Interrupt Mask Register
-	//
+	//aktiviert den Interrupt 0 und 1 (BZW. Stecker)
 	EIMSK |= (1<<INT0);
 	EIMSK |= (1<<INT1);
+	//Erlaubt Interrupts?
 	sei();
 	
 	while (1)
