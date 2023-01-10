@@ -1,0 +1,3 @@
+C:/Users/TolgaSanli/CLionProjects/Tolga_Sanli_3236111_ARBKVS_5/cmake-build-debug/CMakeFiles/Tolga_Sanli_3236111_ARBKVS_5.dir
+C:/Users/TolgaSanli/CLionProjects/Tolga_Sanli_3236111_ARBKVS_5/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/TolgaSanli/CLionProjects/Tolga_Sanli_3236111_ARBKVS_5/cmake-build-debug/CMakeFiles/rebuild_cache.dir
