@@ -1,2 +1,2 @@
-# ARBK_VS2
-ARBK Praktikum VS2 
+# ARBK
+Architektur von Rechnersystemen und Betriebssystemkonzepte und verteilte Systeme
