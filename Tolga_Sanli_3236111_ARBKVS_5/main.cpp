@@ -9,33 +9,33 @@ using namespace std;
 //Class mutex mit dem Objekt mutex0, Prozess mit wechselseitiger Ausschluss -> Process t, block, process t2...
 mutex mutexO;
 //Class Semaphore mit dem Objekt semaphore, Prozess mit multithreads. D.h. mehrere threads können gleichzeitig bedient werden
-Semaphore semaphore(3);
+Semaphore semaphore(1);
 
-void t1(){
-    mutexO.lock( );
-    for(char chars = 'a'; chars <= 'z'; chars++){
+void t1() {
+    mutexO.lock();
+    for (char chars = 'a'; chars <= 'z'; chars++) {
         cout << chars << " ";
     }
     cout << " " << endl;
     mutexO.unlock();
 }
-void t2(){
+void t2() {
     mutexO.lock();
-    for(int i = 0; i < 33; i++){
+    for (int i = 0; i < 33; i++) {
         cout << i << " ";
     }
     cout << " " << endl;
     mutexO.unlock();
 }
-void t3(){
+void t3() {
     mutexO.lock();
-    for(char chars = 'A'; chars <= 'Z'; chars++){
+    for (char chars = 'A'; chars <= 'Z'; chars++) {
         cout << chars << " ";
     }
     cout << " " << endl;
     mutexO.unlock();
 }
-void mutexProcess(){
+void mutexProcess() {
     thread mutexT1(t1);
     thread mutexT2(t2);
     thread mutexT3(t3);
@@ -44,32 +44,32 @@ void mutexProcess(){
     mutexT3.join();
 }
 
-void semaphoreT1(){
+void semaphoreT1() {
     semaphore.acquire();
-    for(char chars = 'a'; chars <= 'z'; chars++){
+    for (char chars = 'a'; chars <= 'z'; chars++) {
         cout << chars << " ";
     }
     cout << " " << endl;
     semaphore.release();
 }
-void semaphoreT2(){
+void semaphoreT2() {
     semaphore.acquire();
-    for(int i = 0; i < 33; i++){
+    for (int i = 0; i < 33; i++) {
         cout << i << " ";
     }
     cout << " " << endl;
     semaphore.release();
 }
-void semaphoreT3(){
+void semaphoreT3() {
     semaphore.acquire();
-    for(char chars = 'A'; chars <= 'Z'; chars++){
+    for (char chars = 'A'; chars <= 'Z'; chars++) {
         cout << chars << " ";
     }
     cout << " " << endl;
     semaphore.release();
 }
 
-void semaphoreProcess(){
+void semaphoreProcess() {
     thread semaphoreT1p(semaphoreT1);
     thread semaphoreT2p(semaphoreT2);
     thread semaphoreT3p(semaphoreT3);
@@ -78,26 +78,26 @@ void semaphoreProcess(){
     semaphoreT3p.join();
 }
 
-void unsynchront1(){
-    for(char chars = 'a'; chars <= 'z'; chars++){
+void unsynchront1() {
+    for (char chars = 'a'; chars <= 'z'; chars++) {
         cout << chars << " ";
     }
     cout << " " << endl;
 }
-void unsynchront2(){
-    for(int i = 0; i < 33; i++){
+void unsynchront2() {
+    for (int i = 0; i < 33; i++) {
         cout << i << " ";
     }
     cout << " " << endl;
 }
-void unsynchront3(){
-    for(char chars = 'A'; chars <= 'Z'; chars++){
+void unsynchront3() {
+    for (char chars = 'A'; chars <= 'Z'; chars++) {
         cout << chars << " ";
     }
     cout << " " << endl;
 }
 
-void unsynchronProcess(){
+void unsynchronProcess() {
     thread unsynchronT1p(unsynchront1);
     thread unsynchronT2p(unsynchront2);
     thread unsynchronT3p(unsynchront3);
